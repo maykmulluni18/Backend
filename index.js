@@ -54,8 +54,8 @@ app.use(session({
     cookie: {
         httpOnly: false,
         secure: 'auto',
-        maxAge: 60000,
-        expires: 60000
+        //maxAge: 60000,
+        //expires: 60000
 
     }
 })
