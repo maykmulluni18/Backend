@@ -25,6 +25,8 @@ import session from "express-session"
 import dotenv from "dotenv"
 import SequelizeS from "connect-session-sequelize"
 
+import {PORT, SECRET_KEY} from './config/config.js'
+
 import { adminOnly, verifyUser } from "./middleware/VerifyAuth.js"
 dotenv.config()
 
@@ -45,7 +47,7 @@ app.use(cors({
     origin: 'http://localhost:3000'
 }))
 app.use(session({
-    secret: process.env.S_SECRET_KEY,
+    secret: SECRET_KEY,
     resave: false,
     saveUninitialized: true,
     store: store,
@@ -93,8 +95,8 @@ try {
     res.send('Hola mundo')
 })
 */
-app.listen(process.env.APP_PORT, () => {
-    console.log('Server Up running in', process.env.APP_PORT)
+app.listen(PORT, () => {
+    console.log('Server Up running in', PORT)
 })
 
 
